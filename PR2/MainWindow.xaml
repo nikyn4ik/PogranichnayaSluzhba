@@ -19,7 +19,6 @@
 
             <TextBlock Text="Количество шлагбаумов на 1 пункте n:" />
             <TextBox Name="txtGates1" Width="80" Text="3"/>
-
             <TextBlock Text="Среднее время обслуживания dT2 (мс):" />
             <TextBox Name="txtDT2" Width="80" Text="2000"/>
 
@@ -35,18 +34,22 @@
             <TextBlock Text="Средний интервал для другого шоссе dT4 (мс):" />
             <TextBox Name="txtDT4" Width="80" Text="1500"/>
 
-            <Button Content="Запуск моделирования" Width="141" Height="30" Margin="0,10,0,0"
-                    Click="StartSimulation"/>
+            <Button Content="Запуск моделирования" Width="141" Height="30" Margin="0,10,0,0" Click="StartSimulation"/>
         </StackPanel>
+
+        <!-- Поле визуализации -->
         <Canvas Name="canvas" Grid.Column="1" Background="LightGray" Margin="193,10,10,10">
-            <Rectangle Name="entryBarrier" Width="20" Height="325" Fill="Red" Canvas.Left="180"
-                       Canvas.Top="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock Text="Въезд" Canvas.Left="177" Canvas.Top="30" HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
-            <Rectangle Name="exitBarrier" Width="20" Height="325" Fill="Red"
-                       Canvas.Left="490" Canvas.Top="50" HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
+            <!-- Первый шлагбаум (въезд) -->
+            <Rectangle Name="entryBarrier" Width="20" Height="325" Fill="Red" Canvas.Left="180" Canvas.Top="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="Въезд" Canvas.Left="177" Canvas.Top="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <!-- Второй шлагбаум (выезд) -->
+            <Rectangle Name="exitBarrier" Width="20" Height="325" Fill="Red" Canvas.Left="490" Canvas.Top="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBlock Text="Выезд" Canvas.Left="480" Canvas.Top="30"/>
+            <TextBlock Name="txtAvgTime" Text="Среднее время проезда: " FontSize="14" FontWeight="Bold" Canvas.Left="-276" Canvas.Top="384"/>
+
+            <Line Name="Linebott1" X1="295" Y1="600" X2="295" Y2="400" Stroke="Black" StrokeThickness="1"/>
+            <Line Name="Linebott2" X1="330" Y1="500" X2="330" Y2="400" Stroke="Black" StrokeThickness="1"/>
         </Canvas>
     </Grid>
 </Window>
